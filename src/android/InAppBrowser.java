@@ -998,7 +998,7 @@ public class InAppBrowser extends CordovaPlugin {
                     inAppWebView.addJavascriptInterface(new JsObject(), "cordova_iab");
                 }
 
-                String overrideUserAgent = preferences.getString("OverrideUserAgent", null);
+                String overrideUserAgent = preferences.getString("IabUserAgent", null);
                 String appendUserAgent = preferences.getString("AppendUserAgent", null);
 
                 if (overrideUserAgent != null) {
