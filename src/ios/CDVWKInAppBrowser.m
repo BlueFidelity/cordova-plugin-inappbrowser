@@ -209,9 +209,12 @@ static CDVWKInAppBrowser* instance = nil;
 
     if (self.inAppBrowserViewController == nil) {
         NSString* userAgent = [CDVUserAgentUtil originalUserAgent];
-        NSString* overrideUserAgent = [self settingForKey:@"IabUserAgent"];
+        NSString* iabUserAgent = [self settingForKey:@"IabUserAgent"];
+        NSString* overrideUserAgent = [self settingForKey:@"OverrideUserAgent"];
         NSString* appendUserAgent = [self settingForKey:@"AppendUserAgent"];
-        if(overrideUserAgent){
+        if(iabUserAgent){
+            userAgent = iabUserAgent;
+        } else if(overrideUserAgent) {
             userAgent = overrideUserAgent;
         }
         if(appendUserAgent){
